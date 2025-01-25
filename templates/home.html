@@ -6,20 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Calculator App</h1>
+  <h1>Apartemt Rental Website</h1>
+ 
+  <form action="/done" method="POST">
+    <h2>Search for an apartment</h2>
+    <label for="place">Place</label><br>
+    <select name="search" id="">
+        <option value="150">150</option>
+        <option value="480">480</option>
+        <option value="620">620</option>
+    </select><br><br>
 
-    <form action="/calculate" method="POST">
-        <input type="text" name="num1" placeholder="Enter first number">
-        <input type="text" name="num2" placeholder="Enter second number">
-        <!-- <select name="operation">
-            <option value="add">Add</option>
-            <option value="subtract">Subtract</option>
-            <option value="multiply">Multiply</option>
-            <option value="divide">Divide</option>
-        </select>
-         -->
-         <button type="submit">Calculate</button>
+    <label for="size">Size Of Apartemt</label><br>
+    <input type="text" name="size" id=""><br><br>
 
-        <h4>{{result}}</h4>
+    <label for="price">Price Range</label><br>
+    <input type="text" name="price" id=""><br><br>
+
+    <input type="submit" value="Search">
+</form>
 </body>
 </html>
