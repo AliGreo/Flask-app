@@ -29,29 +29,37 @@ def home():
 @app.route('/calculate', methods=['POST','GET'])
 def get_info():
 
-    place, size, price = None, None, None
-
     if request.method == 'POST':
-        place = request.form['place']
-        size = request.form['size']
-        price = float(request.form['price'])
+        place = request.form.get('place')
+        size = request.form.get('size')
+        price = float(request.form.get('price'))
 
-        new_search = Search(place=place, size=size, pricr=price)
+        print(place, size, price)
 
-        try:
-            db.session.add(new_search)
-            db.session.commit()
-            return redirect('/done')
-        except:
-            return 'There was an issue adding your search'
+        # new_search = Search(place=place, size=size, pricr=price)
+
+        # try:
+        #     db.session.add(new_search)
+        #     db.session.commit()
+        #     return redirect('/done')
+        # except:
+        #     return 'There was an issue adding your search'
+        with open('data.csv', mode='a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([place, size, price])
 
 
 
-    return render_template('calculate.html')
+    return render_template('done.html')
+
 
 @app.route('/done', methods=['POST','GET'])
 def done():
     return render_template('done.html')
+
+@app.route('/about', methods=['POST','GET'])
+def about():
+    return render_template('about.html')
 
 
 if __name__ == '__main__':
