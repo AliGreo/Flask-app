@@ -2,6 +2,7 @@ body{
 font-family: Arial, sans-serif;
 padding: 10px;
 margin: 10px;
+background-color: whitesmoke;
 }
 
 table{
@@ -72,3 +73,9 @@ button{
     color: black;
     padding: 10px;
 }
+
+a{
+    padding-left: 20px;
+    text-decoration: none;
+}
+
