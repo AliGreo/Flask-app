@@ -13,30 +13,30 @@
     <a href="/about">About us</a>
 
     {% block page_title%}
-  <h1>Apartemt Rental Website</h1>
+  <h1 id="home_title">Apartment Rental Website</h1>
     {% endblock %}
    
   {% block content%}
  
 <form action="/done" method="POST">
-    <h2>Search for an apartment</h2>
-    <label for="username">full name</label>
+    <h2 id="form_head">Search for an apartment</h2>
+    <label for="username">Full name</label><br>
     <input type="text" name="username" id=""><br><br>
 
-    <label for="phone_number">phone number</label>
+    <label for="phone_number">Phone number</label><br>
     <input type="text" name="phone_number" id=""><br><br>
 
-    <label for="place">Place</label>
-    <select name="place" id="">
+    <label for="place">Place</label><br>
+    <select name="place" id="select">
         <option value="150">150</option>
         <option value="480">480</option>
         <option value="620">620</option>
     </select><br><br>
 
-    <label for="size">Size Of Apartemt</label>
-    <input type="text" name="size" id=""><br><br>
+    <label for="size">Size Of Apartemt</label><br>
+    <input type="text" name="size" id=""><br>
 
-    <label for="price">Price Range</label>
+    <label for="price">Price Range</label><br>
     <input type="text" name="price" id=""><br><br>
 
     <button type="submit">Add</button>

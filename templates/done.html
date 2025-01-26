@@ -11,9 +11,9 @@
 {% block content %}
   <br>
   <br>
-    <table>
-        <thead>
-            <tr>
+    <table id="table">
+        <thead id="header">
+            <tr id="data">
                 <th>UserName</th>
                 <th>Phone number</th>
                 <th>Place</th>
@@ -22,13 +22,13 @@
             </tr>
         </thead>
         {% for row in data %}
-        <tbody>
-            <tr>
+        <tbody id="head_body">
+            <tr id="data">
                 <td>{{ row['user_name']}}</td>
                 <td>{{ row['phone_number']}}</td>
                 <td>{{ row['place'] }}</td>
                 <td>{{ row['size'] }}</td>
-                <td>{{ row['price'] }}</td>
+                <td>{{ row['price'] }} LE</td>
             </tr>
         </tbody>
         {% endfor %}
