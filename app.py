@@ -3,6 +3,8 @@ from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask import redirect, url_for
 import csv
+import os
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -26,36 +28,27 @@ class Search(db.Model):
 def home():
     return render_template('home.html')
 
-@app.route('/calculate', methods=['POST','GET'])
-def get_info():
-
-    if request.method == 'POST':
-        place = request.form.get('place')
-        size = request.form.get('size')
-        price = float(request.form.get('price'))
-
-        print(place, size, price)
-
-        # new_search = Search(place=place, size=size, pricr=price)
-
-        # try:
-        #     db.session.add(new_search)
-        #     db.session.commit()
-        #     return redirect('/done')
-        # except:
-        #     return 'There was an issue adding your search'
-        with open('data.csv', mode='a', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow([place, size, price])
-
-
-
-    return render_template('done.html')
-
-
 @app.route('/done', methods=['POST','GET'])
 def done():
-    return render_template('done.html')
+
+    if request.method == 'POST':
+        user_name = request.form.get('username')
+        phone_number = request.form.get('phone_number')
+        place = int(request.form.get('place'))
+        size = float(request.form.get('size'))
+        price = float(request.form.get('price'))
+
+
+        with open('data.csv', mode='a') as file:
+            writer = csv.writer(file)
+            writer.writerow([user_name, phone_number,place, size, price])
+
+        data = pd.read_csv('data.csv').to_dict(orient='records')
+
+        return render_template('done.html', data=data)
+    
+    else:
+        return redirect(url_for('home'))
 
 @app.route('/about', methods=['POST','GET'])
 def about():

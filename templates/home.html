@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block title %}
     <title>Home</title>
     {% endblock %}
 </head>
 <body>
+    <a href="/home">Home</a>
     <a href="/about">About us</a>
 
     {% block page_title%}
@@ -18,17 +20,23 @@
  
 <form action="/done" method="POST">
     <h2>Search for an apartment</h2>
-    <label for="place">Place</label><br>
+    <label for="username">full name</label>
+    <input type="text" name="username" id=""><br><br>
+
+    <label for="phone_number">phone number</label>
+    <input type="text" name="phone_number" id=""><br><br>
+
+    <label for="place">Place</label>
     <select name="place" id="">
         <option value="150">150</option>
         <option value="480">480</option>
         <option value="620">620</option>
     </select><br><br>
 
-    <label for="size">Size Of Apartemt</label><br>
+    <label for="size">Size Of Apartemt</label>
     <input type="text" name="size" id=""><br><br>
 
-    <label for="price">Price Range</label><br>
+    <label for="price">Price Range</label>
     <input type="text" name="price" id=""><br><br>
 
     <button type="submit">Add</button>
