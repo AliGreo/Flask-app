@@ -7,29 +7,9 @@
 {% endblock %}
 
 {% block content %}
-  <br>
-    <table class="table">
-        <thead class="header">
-            <tr class="data">
-                <th>UserName</th>
-                <th>Phone number</th>
-                <th>Place</th>
-                <th>Size</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        {% for row in data %}
-        <tbody id="head_body">
-            <tr id="data">
-                <td>{{row['user_name']}}</td>
-                <td>{{row['phone_number']}}</td>
-                <td>{{row['place']}}</td>
-                <td>{{row['size']}}</td>
-                <td>{{row['price']}} LE</td>
-            </tr>
-        </tbody>
-        {% endfor %}
-    </table>
-
+<h3 class="done_h3">Thank You, the request submitted succesfully</h3>
+<div class="back_home_div">
+<a href="/" class="back_home">Back to home</a>
+</div>
 
 {% endblock %}

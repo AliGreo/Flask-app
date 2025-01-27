@@ -47,7 +47,7 @@ def done():
 
         data = pd.read_csv('data.csv').to_dict(orient='records')
 
-        return redirect(url_for('done', data=data))
+        return render_template('done.html', data=data)
     
     else:
         return redirect(url_for('done'))
