@@ -14,6 +14,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
 class Search(db.Model):
+    user_name = db.Column(db.String(100), nullable=False)
+    phone_number = db.Column(db.String(100), nullable=False)
     id = db.Column(db.Integer, primary_key=True)
     place = db.Column(db.String(100), nullable=False)
     size = db.Column(db.String, nullable=False)
@@ -45,10 +47,10 @@ def done():
 
         data = pd.read_csv('data.csv').to_dict(orient='records')
 
-        return render_template('done.html', data=data)
+        return redirect(url_for('done', data=data))
     
     else:
-        return redirect(url_for('home'))
+        return redirect(url_for('done'))
 
 @app.route('/about', methods=['POST','GET'])
 def about():

@@ -1,7 +1,5 @@
 {% extends 'home.html' %}
 
-{% block page_title %}
-{% endblock %}
 
 
 {% block title %}  
@@ -10,10 +8,9 @@
 
 {% block content %}
   <br>
-  <br>
-    <table id="table">
-        <thead id="header">
-            <tr id="data">
+    <table class="table">
+        <thead class="header">
+            <tr class="data">
                 <th>UserName</th>
                 <th>Phone number</th>
                 <th>Place</th>
@@ -24,11 +21,11 @@
         {% for row in data %}
         <tbody id="head_body">
             <tr id="data">
-                <td>{{ row['user_name']}}</td>
-                <td>{{ row['phone_number']}}</td>
-                <td>{{ row['place'] }}</td>
-                <td>{{ row['size'] }}</td>
-                <td>{{ row['price'] }} LE</td>
+                <td>{{row['user_name']}}</td>
+                <td>{{row['phone_number']}}</td>
+                <td>{{row['place']}}</td>
+                <td>{{row['size']}}</td>
+                <td>{{row['price']}} LE</td>
             </tr>
         </tbody>
         {% endfor %}
